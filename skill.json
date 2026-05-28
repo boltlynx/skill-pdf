@@ -1,0 +1,10 @@
+{
+  "name": "pdf",
+  "version": "1.0.0",
+  "description": "Read PDFs as Markdown, generate PDFs from HTML or Markdown",
+  "author": "boltlynx",
+  "homepage": "https://github.com/boltlynx/skill-pdf",
+  "license": "MIT",
+  "source": "https://raw.githubusercontent.com/boltlynx/skill-pdf/main/skill.json",
+  "skill": "https://raw.githubusercontent.com/boltlynx/skill-pdf/main/skill.md"
+}
