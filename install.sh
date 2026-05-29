@@ -9,7 +9,7 @@ SRC_URL="https://raw.githubusercontent.com/boltlynx/skill-pdf/main"
 echo "Installing skill-pdf to $SKILL_DIR ..."
 mkdir -p "$SKILL_DIR/src"
 
-# ── 1. Fetch files (skill.json + skill.md + src + bin wrappers) ──
+# ── 1. Fetch files (skill.json + skill.md + tool source + wrappers) ──
 download() {
   local rel="$1"
   local dest="$2"
@@ -24,6 +24,8 @@ download() {
 download skill.json "$SKILL_DIR/skill.json"
 download skill.md "$SKILL_DIR/skill.md"
 download src/pdf_tool.py "$SKILL_DIR/src/pdf_tool.py"
+download pdf-read "$SKILL_DIR/pdf-read"
+download pdf-write "$SKILL_DIR/pdf-write"
 
 # ── 2. Check uv ──
 if ! command -v uv &>/dev/null; then
@@ -84,18 +86,8 @@ uv pip install --python "$VENV_DIR/bin/python" \
   "pymupdf4llm>=0.0.17" "weasyprint>=62.0" \
   "markdown-it-py>=3.0" "mdit_py_plugins>=0.4" "pygments>=2.17" -q
 
-# ── 6. bin wrappers ──
-cat > "$SKILL_DIR/pdf-read" << 'EOF'
-#!/bin/bash
-exec "$HOME/.boltlynx/skills-bin/pdf/.venv/bin/python" "$HOME/.boltlynx/skills-bin/pdf/src/pdf_tool.py" read
-EOF
-chmod +x "$SKILL_DIR/pdf-read"
-
-cat > "$SKILL_DIR/pdf-write" << 'EOF'
-#!/bin/bash
-exec "$HOME/.boltlynx/skills-bin/pdf/.venv/bin/python" "$HOME/.boltlynx/skills-bin/pdf/src/pdf_tool.py" write
-EOF
-chmod +x "$SKILL_DIR/pdf-write"
+# ── 6. Make wrappers executable ──
+chmod +x "$SKILL_DIR/pdf-read" "$SKILL_DIR/pdf-write"
 
 echo ""
 echo "✓ skill-pdf installed at $SKILL_DIR"

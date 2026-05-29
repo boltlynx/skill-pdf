@@ -1,0 +1,2 @@
+#!/bin/bash
+exec "$HOME/.boltlynx/skills-bin/pdf/.venv/bin/python" "$HOME/.boltlynx/skills-bin/pdf/src/pdf_tool.py" write
