@@ -2,7 +2,7 @@
 set -e
 
 # Install location (per BoltLynx skill convention)
-SKILL_DIR="$HOME/.lynx/skills-bin/pdf"
+SKILL_DIR="$HOME/.boltlynx/skills-bin/pdf"
 VENV_DIR="$SKILL_DIR/.venv"
 SRC_URL="https://raw.githubusercontent.com/boltlynx/skill-pdf/main"
 
@@ -87,13 +87,13 @@ uv pip install --python "$VENV_DIR/bin/python" \
 # ── 6. bin wrappers ──
 cat > "$SKILL_DIR/bin/pdf-read" << 'EOF'
 #!/bin/bash
-exec "$HOME/.lynx/skills-bin/pdf/.venv/bin/python" "$HOME/.lynx/skills-bin/pdf/src/pdf_tool.py" read
+exec "$HOME/.boltlynx/skills-bin/pdf/.venv/bin/python" "$HOME/.boltlynx/skills-bin/pdf/src/pdf_tool.py" read
 EOF
 chmod +x "$SKILL_DIR/bin/pdf-read"
 
 cat > "$SKILL_DIR/bin/pdf-write" << 'EOF'
 #!/bin/bash
-exec "$HOME/.lynx/skills-bin/pdf/.venv/bin/python" "$HOME/.lynx/skills-bin/pdf/src/pdf_tool.py" write
+exec "$HOME/.boltlynx/skills-bin/pdf/.venv/bin/python" "$HOME/.boltlynx/skills-bin/pdf/src/pdf_tool.py" write
 EOF
 chmod +x "$SKILL_DIR/bin/pdf-write"
 

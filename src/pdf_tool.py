@@ -28,12 +28,12 @@ def check_deps():
     try:
         import pymupdf4llm
     except ImportError:
-        return "pymupdf4llm not installed. Run: bash ~/.lynx/skills/pdf/install.sh (or reinstall via curl)"
+        return "pymupdf4llm not installed. Run: bash ~/.boltlynx/skills-bin/pdf/install.sh (or reinstall via curl)"
     # Check version
     try:
         ver = tuple(int(x) for x in pymupdf4llm.__version__.split(".")[:3])
         if ver < MIN_VERSIONS["pymupdf4llm"]:
-            return f"pymupdf4llm {pymupdf4llm.__version__} too old, need >={'.'.join(str(x) for x in MIN_VERSIONS['pymupdf4llm'])}. Run: bash ~/.lynx/skills/pdf/install.sh (or reinstall via curl)"
+            return f"pymupdf4llm {pymupdf4llm.__version__} too old, need >={'.'.join(str(x) for x in MIN_VERSIONS['pymupdf4llm'])}. Run: bash ~/.boltlynx/skills-bin/pdf/install.sh (or reinstall via curl)"
     except Exception:
         pass  # version parse failed, proceed anyway
     return None
@@ -229,7 +229,7 @@ def handle_write(args):
     try:
         import weasyprint
     except (ImportError, OSError) as e:
-        return {"error": f"weasyprint not available: {e}. Run: bash ~/.lynx/skills/pdf/install.sh (or reinstall via curl)"}
+        return {"error": f"weasyprint not available: {e}. Run: bash ~/.boltlynx/skills-bin/pdf/install.sh (or reinstall via curl)"}
 
     try:
         # Read file content if needed
@@ -243,7 +243,7 @@ def handle_write(args):
             try:
                 html_content = markdown_to_html(content)
             except ImportError as e:
-                return {"error": f"Markdown dependencies not available: {e}. Run: bash ~/.lynx/skills/pdf/install.sh (or reinstall via curl)"}
+                return {"error": f"Markdown dependencies not available: {e}. Run: bash ~/.boltlynx/skills-bin/pdf/install.sh (or reinstall via curl)"}
         else:
             html_content = content
 

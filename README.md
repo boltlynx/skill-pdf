@@ -8,7 +8,7 @@ PDF skill for [BoltLynx](https://github.com/boltlynx) — read PDFs as Markdown 
 curl -fsSL https://raw.githubusercontent.com/boltlynx/skill-pdf/main/install.sh | bash
 ```
 
-This installs to `~/.lynx/skills/pdf/`. Once installed, enable in any agent's space settings via the `skill:pdf` kit.
+This installs the tool to `~/.boltlynx/skills-bin/pdf/`. To register the skill with an agent, run `boltlynx skill install` in the project directory (see below), then enable it in the space settings via the `skill:pdf` kit.
 
 ### Requirements
 
@@ -23,8 +23,10 @@ This installs to `~/.lynx/skills/pdf/`. Once installed, enable in any agent's sp
 
 ## Layout (after install)
 
+The tool installs to `~/.boltlynx/skills-bin/pdf/`:
+
 ```
-~/.lynx/skills/pdf/
+~/.boltlynx/skills-bin/pdf/
 ├── skill.json          # metadata (name, version, ...)
 ├── skill.md            # LLM-facing documentation
 ├── bin/
@@ -35,10 +37,20 @@ This installs to `~/.lynx/skills/pdf/`. Once installed, enable in any agent's sp
 └── .venv/              # Python environment
 ```
 
+To make the skill visible to an agent, register it in the project directory:
+
+```bash
+cd <your-project>
+boltlynx skill install https://raw.githubusercontent.com/boltlynx/skill-pdf/main/skill.json
+```
+
+This writes `skill.json` + `skill.md` to `<your-project>/.boltlynx/skills/pdf/`.
+
 ## Uninstall
 
 ```bash
-rm -rf ~/.lynx/skills/pdf
+rm -rf ~/.boltlynx/skills-bin/pdf            # remove the tool
+boltlynx skill uninstall pdf                 # unregister from the project
 ```
 
 ## License
