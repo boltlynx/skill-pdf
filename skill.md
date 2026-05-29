@@ -24,7 +24,7 @@ interface PdfReadResult {
 
 ```js
 const r = await $.call({
-  cmd: '~/.boltlynx/skills-bin/pdf/bin/pdf-read',
+  cmd: '~/.boltlynx/skills-bin/pdf/pdf-read',
   input: { file: 'report.pdf' },
 })
 // r.content is markdown text, r.totalPages is page count
@@ -55,13 +55,13 @@ interface PdfWriteResult {
 ```js
 // From Markdown file
 await $.call({
-  cmd: '~/.boltlynx/skills-bin/pdf/bin/pdf-write',
+  cmd: '~/.boltlynx/skills-bin/pdf/pdf-write',
   input: { file: 'docs/design.md', output: 'design.pdf' },
 })
 
 // From HTML for full layout control
 await $.call({
-  cmd: '~/.boltlynx/skills-bin/pdf/bin/pdf-write',
+  cmd: '~/.boltlynx/skills-bin/pdf/pdf-write',
   input: { content: '<h1>Title</h1><p>Body</p>', output: 'out.pdf' },
 })
 ```

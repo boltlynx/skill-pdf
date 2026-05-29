@@ -7,7 +7,7 @@ VENV_DIR="$SKILL_DIR/.venv"
 SRC_URL="https://raw.githubusercontent.com/boltlynx/skill-pdf/main"
 
 echo "Installing skill-pdf to $SKILL_DIR ..."
-mkdir -p "$SKILL_DIR/bin" "$SKILL_DIR/src"
+mkdir -p "$SKILL_DIR/src"
 
 # ── 1. Fetch files (skill.json + skill.md + src + bin wrappers) ──
 download() {
@@ -85,17 +85,17 @@ uv pip install --python "$VENV_DIR/bin/python" \
   "markdown-it-py>=3.0" "mdit_py_plugins>=0.4" "pygments>=2.17" -q
 
 # ── 6. bin wrappers ──
-cat > "$SKILL_DIR/bin/pdf-read" << 'EOF'
+cat > "$SKILL_DIR/pdf-read" << 'EOF'
 #!/bin/bash
 exec "$HOME/.boltlynx/skills-bin/pdf/.venv/bin/python" "$HOME/.boltlynx/skills-bin/pdf/src/pdf_tool.py" read
 EOF
-chmod +x "$SKILL_DIR/bin/pdf-read"
+chmod +x "$SKILL_DIR/pdf-read"
 
-cat > "$SKILL_DIR/bin/pdf-write" << 'EOF'
+cat > "$SKILL_DIR/pdf-write" << 'EOF'
 #!/bin/bash
 exec "$HOME/.boltlynx/skills-bin/pdf/.venv/bin/python" "$HOME/.boltlynx/skills-bin/pdf/src/pdf_tool.py" write
 EOF
-chmod +x "$SKILL_DIR/bin/pdf-write"
+chmod +x "$SKILL_DIR/pdf-write"
 
 echo ""
 echo "✓ skill-pdf installed at $SKILL_DIR"

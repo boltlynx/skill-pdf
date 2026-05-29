@@ -31,9 +31,8 @@ curl -fsSL https://raw.githubusercontent.com/boltlynx/skill-pdf/main/install.sh 
 ~/.boltlynx/skills-bin/pdf/
 ├── skill.json          # 元数据(名称、版本……)
 ├── skill.md            # 面向 LLM 的说明文档
-├── bin/
-│   ├── pdf-read        # 包装脚本
-│   └── pdf-write       # 包装脚本
+├── pdf-read            # 包装脚本
+├── pdf-write           # 包装脚本
 ├── src/
 │   └── pdf_tool.py     # 实际实现
 └── .venv/              # Python 环境

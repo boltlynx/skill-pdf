@@ -31,9 +31,8 @@ The tool installs to `~/.boltlynx/skills-bin/pdf/`:
 ~/.boltlynx/skills-bin/pdf/
 ├── skill.json          # metadata (name, version, ...)
 ├── skill.md            # LLM-facing documentation
-├── bin/
-│   ├── pdf-read        # wrapper script
-│   └── pdf-write       # wrapper script
+├── pdf-read            # wrapper script
+├── pdf-write           # wrapper script
 ├── src/
 │   └── pdf_tool.py     # actual implementation
 └── .venv/              # Python environment
