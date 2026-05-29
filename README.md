@@ -1,5 +1,7 @@
 # skill-pdf
 
+[English](README.md) · [中文](README.zh-CN.md)
+
 PDF skill for [BoltLynx](https://github.com/boltlynx) — read PDFs as Markdown and generate PDFs from HTML/CSS or Markdown.
 
 ## Install
